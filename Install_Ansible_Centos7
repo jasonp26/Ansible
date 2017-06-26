@@ -1,0 +1,7 @@
+Installing Ansible on Centos7
+
+Notes:  http://docs.ansible.com/ansible/intro_installation.html
+
+### Centos7 Commands ###
+
+Sudo yum install ansible
