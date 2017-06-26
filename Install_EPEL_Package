@@ -1,0 +1,9 @@
+Before you can install Ansible on a Centos7 OS you need to prepare the system to be able to install it.
+
+You need to install the EPEL Package.  (http://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F)
+
+###Centos07 Command###
+
+You need to run this command to install EPEL
+
+sudo yum install epel-release
