@@ -1,5 +1,9 @@
 These are teh steps in Centos07 to assign a Static IP Address to your network
 
+Type this command to view your network IP Address
+
+# ip a
+
 Create a file named /etc/sysconfig/network-scripts/ifcfg-eth0 as follows:
 DEVICE=eth0
 BOOTPROTO=none
