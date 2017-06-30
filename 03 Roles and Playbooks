@@ -1,0 +1,41 @@
+It is now time to create my first Role and Playbook.
+
+The following video(s) helped me in understanding how to do this process.
+
+https://www.youtube.com/channel/UCLLumGsi1QboyiFIJf8a-0w
+
+=========================================================================================
+# Main.yml
+=========================================================================================
+
+On my Ansible Server I did the following.
+
+- Navigate to /etc/ansible/roles
+- sudo mkdir /etc/ansible/roles/basic/tasks
+- Navigate to the 'tasks' folder
+- sudo vim main.yml
+
+# My Main.yml file
+
+- name: "Installing Vim"
+  apt: pkg=vim state=installed
+
+=========================================================================================
+# Playbook.yml
+=========================================================================================
+
+In the main directory or wherever you like create a playbook.yml file.  I decided to place this in the main '/etc/ansible/' directory
+
+- cd /etc/ansible
+- sudo vim playbook.yml
+
+# My Playbook.yml file
+
+---
+- hosts: all
+  become: true
+  roles:
+  - basic
+=========================================================================================
+
+The above playbook will apply to all my nodes that I want Vim installed on. (in this case only the one server)
