@@ -18,7 +18,13 @@ On my Ansible Server I did the following.
 # My Main.yml file
 
 - name: "Installing Vim"
-  apt: pkg=vim state=installed
+  yum: pkg=vim state=installed
+  
+- name: "Installed Apache and Restarting the service"
+  yum: pkg=httpd state=latest
+  
+- name: "Restart Service"
+  service: name=httpd state=started
 
 =========================================================================================
 # Playbook.yml
@@ -38,4 +44,4 @@ In the main directory or wherever you like create a playbook.yml file.  I decide
   - basic
 =========================================================================================
 
-The above playbook will apply to all my nodes that I want Vim installed on. (in this case only the one server)
+The above playbook will apply to all my nodes that I want Vim and HTTPD installed on. (in this case only the one server)
