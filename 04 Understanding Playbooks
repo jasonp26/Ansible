@@ -1,0 +1,38 @@
+It is important to not start of using Ansible with bad practices lets look at the proper setup and writing of Ansible Yml script.
+
+First we need to understand "Inventories" this is a file that stores your hosts that you want Ansible to manage
+
+They can be listed like:
+
+# Example Inventory File
+=====================================
+server1.mycomp.com
+
+[webservers]
+web1.mycomp.com
+apache.mycomp.com
+
+[domain controllers]
+dc1.mycomp.com
+dc2.mycomp.com
+=====================================
+
+To run more commands like to install an apache server on all or a particular hosts you need a yml file playbook.  Below is an example of sucha playbook
+
+=====================================
+--
+- hosts: all
+  tasks:
+  
+  - apt: update_cache=yes cache_valid_time=3600
+- hosts: webservers
+  tasks:
+  
+  - apt: name=apache2 sate=latest
+=====================================
+
+To run this playbook on your ansbile server you only need to first declare the inventory file and the playbook file.
+
+=====================================
+$ ansible-playbook -i inventory playbook.yml
+=====================================
